@@ -36,7 +36,7 @@ The training code is built on PyTorch with DistributedDataParallel (DDP). We pre
 
 FashionIQ, Shoes, and CIRR datasets can output metrics during training, whereas the Fashion200k dataset, due to its larger scale, requires training to be completed before testing.
 
-Checkpoints download link: [Baidu Yun Pan](https://pan.baidu.com/s/1sjoatsrC0Dgs9kiRAafxhg): 1207
+Checkpoints download link: [Google Dive](https://pan.baidu.com/s/1sjoatsrC0Dgs9kiRAafxhg): 1228
 
 ```python
 # FashionIQ
@@ -82,4 +82,4 @@ Our code references the following projects. Many thanks to the authors.
 
 - [VAL](https://github.com/yanbeic/VAL)
 - [CLIP4Cir](https://github.com/ABaldrati/CLIP4Cir)
-- [CLIP](ttps://github.com/openai/CLIP)
+- [CLIP](https://github.com/openai/CLIP)
