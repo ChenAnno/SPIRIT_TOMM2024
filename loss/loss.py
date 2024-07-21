@@ -63,7 +63,7 @@ class TripletLoss(torch.nn.Module):
         return self.alpha * (loss_trip_a + loss_trip_b)
 
 
-class MyLoss(nn.Module):
+class CombinedLoss(nn.Module):
     def __init__(self, margin=0.1):
         super(MyLoss, self).__init__()
         self.margin = margin
@@ -71,13 +71,13 @@ class MyLoss(nn.Module):
         self.margin_loss = nn.MarginRankingLoss(margin=self.margin)
 
     def forward(self, a, b):
-        # 计算余弦相似度
+        # cosine similarity
         cos_sim = F.cosine_similarity(a, b)
 
-        # 计算余弦相似度的损失
+        # cosine loss
         cos_loss = self.cos_loss(a, b, torch.ones_like(cos_sim))
 
-        # 计算距离损失
+        # Distance loss
         dist = torch.norm(a - b, p=2, dim=1)  # 计算欧几里得距离
         margin_target = torch.ones_like(dist)  # 目标为1
         margin_loss = self.margin_loss(dist, dist, margin_target)
@@ -85,7 +85,7 @@ class MyLoss(nn.Module):
         print(cos_loss)
         print(margin_loss)
 
-        # 组合损失
+        # Combine together
         loss_total = cos_loss + margin_loss
 
         return loss_total
