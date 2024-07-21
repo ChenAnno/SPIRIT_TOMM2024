@@ -32,6 +32,12 @@ The download homepages for these datasets are listed as follows.
 
 ## Quick Start
 
+- **dataloader**: Contains loading files for 4 commonly used datasets.
+- **losses**: The ```loss.py``` file contains common loss functions, with BatchBasedClassificationLoss being the function actually used in the paper.
+- **models**: Contains all modules that make up the ```SPIRIT``` model.
+- **run**: Includes the entry files for training and testing on four datasets.
+- **utils**: Comprises of utility functions that support various tasks within the project.
+
 The training code is built on PyTorch with DistributedDataParallel (DDP). We pretrain the framework with 8 V100 GPUs.
 
 FashionIQ, Shoes, and CIRR datasets can output metrics during training, whereas the Fashion200k dataset, due to its larger scale, requires training to be completed before testing.
